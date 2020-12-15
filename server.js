@@ -13,11 +13,11 @@ var PORT = process.env.PORT || 8080
 // =============================================================
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use("/assets", express.static("./assets"));
-
+app.use(express.static(__dirname + '/public'));
+app.use("./assets", express.static("./assets"));
 
 require("./rout/html_rout")(app);
-require("./rout/api")(app);
+require("./rout/api_rout")(app);
 
 // Starts the server to begin listening
 // =============================================================
